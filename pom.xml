@@ -247,7 +247,6 @@
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>8.0.25</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.assertj</groupId>
@@ -285,6 +284,11 @@
       <artifactId>mssql-jdbc</artifactId>
       <version>8.4.1.jre8</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>3.5.5</version>
     </dependency>
   </dependencies>
 

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.source.mapper.RoleMapper">
+  <select id="getRoleById" resultType="com.mybatis.source.jdbc.entity.Role">
+    select id, name,note from t_role where id = #{id}
+  </select>
+</mapper>

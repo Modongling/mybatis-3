@@ -2,7 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mybatis.source.mapper.RoleMapper">
-  <select id="getRoleById" resultType="com.mybatis.source.jdbc.entity.Role">
+  <select id="getRoleById" parameterType="java.lang.Long" resultType="com.mybatis.source.jdbc.entity.Role">
     select id, name,note from t_role where id = #{id}
   </select>
+
+  <delete id="deleteRole">
+    delete from t_role where id = #{id}
+  </delete>
+
+  <delete id="insertRole">
+    insert into t_role(name, note) values (#{name}, #{note})
+  </delete>
 </mapper>

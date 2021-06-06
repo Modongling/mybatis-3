@@ -28,7 +28,9 @@ public class RoleTest {
       System.out.println(role);
     } catch (Exception e) {
       System.err.println(e.getMessage());
-      sqlSession.rollback();
+      if (sqlSession != null) {
+        sqlSession.rollback();
+      }
     } finally {
       if (sqlSession != null) {
         sqlSession.close();

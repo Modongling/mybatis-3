@@ -78,7 +78,7 @@ public final class TypeHandlerRegistry {
    */
   public TypeHandlerRegistry(Configuration configuration) {
     this.unknownTypeHandler = new UnknownTypeHandler(configuration);
-
+//类型映射 --- java --- JDBC
     register(Boolean.class, new BooleanTypeHandler());
     register(boolean.class, new BooleanTypeHandler());
     register(JdbcType.BOOLEAN, new BooleanTypeHandler());
@@ -150,6 +150,7 @@ public final class TypeHandlerRegistry {
     register(JdbcType.OTHER, unknownTypeHandler);
 
     register(Date.class, new DateTypeHandler());
+    //yyyy-MM-dd
     register(Date.class, JdbcType.DATE, new DateOnlyTypeHandler());
     register(Date.class, JdbcType.TIME, new TimeOnlyTypeHandler());
     register(JdbcType.TIMESTAMP, new DateTypeHandler());
@@ -158,6 +159,7 @@ public final class TypeHandlerRegistry {
 
     register(java.sql.Date.class, new SqlDateTypeHandler());
     register(java.sql.Time.class, new SqlTimeTypeHandler());
+    //yyyy-MM-dd HH:MM:SS
     register(java.sql.Timestamp.class, new SqlTimestampTypeHandler());
 
     register(String.class, JdbcType.SQLXML, new SqlxmlTypeHandler());

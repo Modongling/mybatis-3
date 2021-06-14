@@ -38,10 +38,11 @@ public interface TypeHandler<T> {
    * @throws SQLException
    *           the SQL exception
    */
+  //列名,结果集
   T getResult(ResultSet rs, String columnName) throws SQLException;
-
+  //结果集,列下标
   T getResult(ResultSet rs, int columnIndex) throws SQLException;
-
+  //存储过程,列下标
   T getResult(CallableStatement cs, int columnIndex) throws SQLException;
 
 }

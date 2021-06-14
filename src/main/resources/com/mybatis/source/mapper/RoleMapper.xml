@@ -2,7 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mybatis.source.mapper.RoleMapper">
-  <select id="getRoleById" parameterType="java.lang.Long" resultType="com.mybatis.source.jdbc.entity.Role">
+  <resultMap id="roleMap" type="com.mybatis.source.jdbc.entity.Role">
+    <id column="id" property="id" javaType="long" jdbcType="BIGINT"/>
+    <result column="name" property="name" javaType="string" jdbcType="VARCHAR"/>
+    <result column="note" property="note" javaType="string" jdbcType="VARCHAR"
+    typeHandler="com.mybatis.source.handler.MyStringHandler"/>
+  </resultMap>
+  <select id="getRoleById" parameterType="java.lang.Long" resultMap="roleMap">
     select id, name,note from t_role where id = #{id}
   </select>
 
@@ -13,4 +19,10 @@
   <delete id="insertRole">
     insert into t_role(name, note) values (#{name}, #{note})
   </delete>
+
+  <select id="findRole" resultMap="roleMap">
+    select * from t_role
+    where name like concat('%', #{name
+    ,jdbcType=VARCHAR,javaType=string,typeHandler=com.mybatis.source.handler.MyStringHandler}, '%') limit 1
+  </select>
 </mapper>

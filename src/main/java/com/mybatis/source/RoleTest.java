@@ -26,6 +26,8 @@ public class RoleTest {
       sqlSession.commit();
       Role role = roleMapper.getRoleById(1L);
       System.out.println(role);
+      Role r = roleMapper.findRole("r");
+      System.out.println(r);
     } catch (Exception e) {
       System.err.println(e.getMessage());
       if (sqlSession != null) {

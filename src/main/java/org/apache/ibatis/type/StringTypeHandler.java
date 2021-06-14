@@ -23,6 +23,7 @@ import java.sql.SQLException;
 /**
  * @author Clinton Begin
  */
+//BaseTypeHandle --- TypeHandle
 public class StringTypeHandler extends BaseTypeHandler<String> {
 
   @Override
